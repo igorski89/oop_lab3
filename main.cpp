@@ -12,14 +12,31 @@ using namespace std;
 vector<ShapeContainer*> shape_cont;
 ShapeContainer * current;
 
-void setCurrentContainer(ShapeContainer *cont){
+ShapeContainer* setCurrentContainer(ShapeContainer *cont){
     current = cont;
     current->setSelected(true);
     vector<ShapeContainer*>::iterator it;
-    for (it=shape_cont.begin();it<shape_cont.end();it++){
-        if (currnet != (*it))
-            (*it)->setSelected(false);
+    for (it=shape_cont.begin();it<shape_cont.end();it++)
+        if (current != (*it)) (*it)->setSelected(false);
+    return current;
+}
+
+
+ShapeContainer* selectNext(){
+    if (current == (*shape_cont.end())){
+        return setCurrentContainer((*shape_cont.begin()));
     }
+    else {
+        vector<ShapeContainer*>::iterator it;
+        for(it=shape_cont.begin();it<shape_cont.end();it++)
+            if (current == (*it))
+                return setCurrentContainer((*(it++)));
+    }
+    return current;
+}
+
+ShapeContainer* selectPrevious(){
+    return current;
 }
 
 void render(){
@@ -53,10 +70,14 @@ void processNormalKeys(unsigned char key, int x, int y){
     cout << "precced key " << key << endl;
     if (key == '1') {
         cout << "adding rectangle to scene and make it selected";
-        shape_cont[0]->addRectangle(10,10,10,10,1.0,1.0,1.0);
+//        shape_cont[0]->addRectangle(10,10,10,10,1.0,1.0,1.0);
     } else if (key == '2') {
         cout << "adding circle to scene and make it selected";
         
+    } else if (key == 'q' || key == 'Q') {
+        selectNext();
+    } else if (key == 'e' || key == 'E') {
+        selectPrevious()
     }
 }
 

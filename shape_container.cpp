@@ -85,7 +85,7 @@ void ShapeContainer::recalculateBounds() {
 
 
 void ShapeContainer::draw() {
-    if (this->selected) {
+    if (this->isSelected()) {
         glColor3f(red, green, blue);
         glLineWidth(2.0);
         glBegin(GL_LINE_LOOP);

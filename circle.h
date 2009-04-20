@@ -11,7 +11,7 @@
 
 #include "shape.h"
 
-class Circle: Shape {
+class Circle: public Shape {
 protected:
     float radius;
 public:

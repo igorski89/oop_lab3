@@ -33,7 +33,7 @@ Shape::Shape(float x, float y, float h, float w, float r, float g, float b) {
 
 Shape::Shape(const Shape& shape) {
     this->setLocation(shape.getX(), shape.getY());
-    this->setSize(shape.getHeigth(), shape.getWidth());
+    this->setSize(shape.getHeight(), shape.getWidth());
     this->setColor(shape.getRed(), shape.getGreen(), shape.getBlue());
     this->setVisible(shape.isVisible());
 }
@@ -46,7 +46,7 @@ void  Shape::setLocation(float x, float y) {
 }
 
 float Shape::getWidth() const{ return w; }
-float Shape::getHeigth() const{ return h; }
+float Shape::getHeight() const{ return h; }
 void  Shape::setSize(float h, float w){ 
     this->h = h; 
     this->w = w; 
@@ -68,7 +68,7 @@ void Shape::draw() { };
 
 Shape& Shape::operator=(const Shape& shape) {
     this->setLocation(shape.getX(), shape.getY());
-    this->setSize(shape.getHeigth(), shape.getWidth());
+    this->setSize(shape.getHeight(), shape.getWidth());
     this->setColor(shape.getRed(), shape.getGreen(), shape.getBlue());
     this->setVisible(shape.isVisible());
     return *this;
@@ -76,7 +76,7 @@ Shape& Shape::operator=(const Shape& shape) {
 
 bool Shape::operator==(const Shape& shape) const {
     if (this->getX() == shape.getX() && this->getY() == shape.getY() &&
-        this->getWidth() == shape.getWidth() && this->getHeigth() == shape.getHeigth() &&
+        this->getWidth() == shape.getWidth() && this->getHeight() == shape.getHeight() &&
         this->isVisible() == shape.isVisible() &&
         this->getRed() == shape.getRed() &&
         this->getGreen() == shape.getGreen() &&

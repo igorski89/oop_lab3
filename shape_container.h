@@ -12,7 +12,7 @@
 #include "shape.h"
 #include <vector>
 
-class ShapeContainer: protected Shape {
+class ShapeContainer: public Shape {
 protected:
     bool selected;
     std::vector<Shape> shapes;

@@ -30,7 +30,7 @@ public:
     void setLocation(float x, float y);
     
     float getWidth() const;
-    float getHeigth() const;
+    float getHeight() const;
     void setSize(float h, float w);
     
     bool isVisible() const;

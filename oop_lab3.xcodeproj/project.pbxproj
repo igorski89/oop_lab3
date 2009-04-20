@@ -14,6 +14,7 @@
 		A9DF228B0F9BAA05000E664C /* shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9DF228A0F9BAA05000E664C /* shape.cpp */; };
 		A9DF22F90F9BB5A5000E664C /* rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9DF22F80F9BB5A5000E664C /* rectangle.cpp */; };
 		A9DF23AD0F9BCB1E000E664C /* circle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9DF23AC0F9BCB1E000E664C /* circle.cpp */; };
+		A9DF250E0F9C6D48000E664C /* shape_container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9DF250D0F9C6D48000E664C /* shape_container.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +41,8 @@
 		A9DF22F80F9BB5A5000E664C /* rectangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rectangle.cpp; sourceTree = "<group>"; };
 		A9DF23AB0F9BCB1E000E664C /* circle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = circle.h; sourceTree = "<group>"; };
 		A9DF23AC0F9BCB1E000E664C /* circle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = circle.cpp; sourceTree = "<group>"; };
+		A9DF250C0F9C6D48000E664C /* shape_container.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shape_container.h; sourceTree = "<group>"; };
+		A9DF250D0F9C6D48000E664C /* shape_container.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shape_container.cpp; sourceTree = "<group>"; };
 		C6859E8B029090EE04C91782 /* oop_lab3.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = oop_lab3.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +76,8 @@
 			children = (
 				A9DF22F70F9BB5A5000E664C /* rectangle.h */,
 				A9DF22F80F9BB5A5000E664C /* rectangle.cpp */,
+				A9DF250C0F9C6D48000E664C /* shape_container.h */,
+				A9DF250D0F9C6D48000E664C /* shape_container.cpp */,
 				08FB7796FE84155DC02AAC07 /* main.cpp */,
 				A9DF23AB0F9BCB1E000E664C /* circle.h */,
 				A9DF23AC0F9BCB1E000E664C /* circle.cpp */,
@@ -145,6 +150,7 @@
 				A9DF228B0F9BAA05000E664C /* shape.cpp in Sources */,
 				A9DF22F90F9BB5A5000E664C /* rectangle.cpp in Sources */,
 				A9DF23AD0F9BCB1E000E664C /* circle.cpp in Sources */,
+				A9DF250E0F9C6D48000E664C /* shape_container.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

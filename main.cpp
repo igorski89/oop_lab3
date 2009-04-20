@@ -3,16 +3,26 @@
 #include <math.h>
 #include "rectangle.h"
 #include "circle.h"
+#include "shape_container.h"
+#include <vector>
 
 Rectangle rect(100,100,300,200,1.0,0.0,0.0);
 Rectangle rect1(500,100,350,250,0.0,1.0,0.0);
 Circle circle1(300,300,50,0.0,0.0,1.0);
+ShapeContainer shape_cont(50,50,400,300,1.0,0.0,0.0);
+//shape_cont.setSelected(true);
+
+//ShapeContainer cont(circle1);
+//std::vector<Shape> vec1;
+//vec.push_back(rect1);
+//vec.push_back(circle1);
 
 void render(){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     rect.draw();
     rect1.draw();
     circle1.draw();
+    //cont.draw();
     glutSwapBuffers();
 }
 

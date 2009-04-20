@@ -11,7 +11,7 @@
 
 #include "shape.h"
 
-class Rectangle: Shape {
+class Rectangle: public Shape {
 public:
     Rectangle(): Shape() {};
     Rectangle(float x, float y, float h, float w): Shape(x,y,h,w,0.0,0.0,0.0) {};

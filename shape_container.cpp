@@ -85,17 +85,17 @@ void ShapeContainer::recalculateBounds() {
 
 
 void ShapeContainer::draw() {
+    if (this->selected) {
+        glColor3f(red, green, blue);
+        glLineWidth(2.0);
+        glBegin(GL_LINE_LOOP);
+        glVertex2f(x, y);
+        glVertex2f(x, y+h);
+        glVertex2f(x+w, y+h);
+        glVertex2f(x+w, y);
+        glEnd();
+    }    
     if (this->isVisible()){
-        if (this->selected) {
-            glColor3f(red, green, blue);
-            glLineWidth(2.0);
-            glBegin(GL_LINE_LOOP);
-                glVertex2f(x, y);
-                glVertex2f(x, y+h);
-                glVertex2f(x+w, y+h);
-                glVertex2f(x+w, y);
-            glEnd();
-        }
         int shapes_size = shapes.size();
         for(int i=0; i<shapes_size; i++){
             shapes[i]->draw();

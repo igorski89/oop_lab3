@@ -5,24 +5,39 @@
 #include "circle.h"
 #include "shape_container.h"
 #include <vector>
+#include <iostream>
 
-//Rectangle rect(100,100,300,200,1.0,0.0,0.0);
-//Rectangle rect1(500,100,350,250,0.0,1.0,0.0);
-//Circle circle1(300,300,50,0.0,0.0,1.0);
-ShapeContainer shape_cont;
+using namespace std;
+
+vector<ShapeContainer*> shape_cont;
+ShapeContainer * current;
+
+void setCurrentContainer(ShapeContainer *cont){
+    current = cont;
+    current->setSelected(true);
+    vector<ShapeContainer*>::iterator it;
+    for (it=shape_cont.begin();it<shape_cont.end();it++){
+        if (currnet != (*it))
+            (*it)->setSelected(false);
+    }
+}
 
 void render(){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-//    rect.draw();
-//    rect1.draw();
-//    circle1.draw();
-    shape_cont.draw();
+    
+    vector<ShapeContainer*>::iterator it;
+    ShapeContainer * current;
+    for (it=shape_cont.begin(); it < shape_cont.end(); it++) {
+        if ((*it)->isSelected()) current = (*it);
+        else (*it)->draw();
+    }
+    current->draw();
+    
     glutSwapBuffers();
 }
 
 void resizeWindow(int w, int h){
     glViewport(0, 0, w, h);
-    
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluOrtho2D(0, w, 0, h);
@@ -33,13 +48,38 @@ void idle(){
     glutPostRedisplay();
 }
 
+void processNormalKeys(unsigned char key, int x, int y){
+//    int mod = glutGetModifiers();
+    cout << "precced key " << key << endl;
+    if (key == '1') {
+        cout << "adding rectangle to scene and make it selected";
+        shape_cont[0]->addRectangle(10,10,10,10,1.0,1.0,1.0);
+    } else if (key == '2') {
+        cout << "adding circle to scene and make it selected";
+        
+    }
+}
+
+void processSpecialKeys(int key, int x, int y){
+    cout << "pressed special " << key << endl;
+}
+
 int main (int argc, char ** argv) {    
-    shape_cont.addRectangle(100,100,300,200,0.0,1.0,0.0);
-    shape_cont.addCircle(300,300,50,0.0,0.0,1.0);
-    shape_cont.addCircle(100,100,50,0.0,0.0,1.0);    
-    shape_cont.addRectangle(350,300,30,40,0.0,0.0,1.0);
-    shape_cont.setVisible(true);
-    shape_cont.setSelected(true);    
+    ShapeContainer *shapes = new ShapeContainer();
+    shapes->addRectangle(100, 100, 200, 300, 0.0, 1.0, 0.0);
+    shapes->addCircle(300,300,50,0.0,0.5,0.5);
+    shapes->addCircle(100,100,75,0.5,0.0,0.5);
+    shapes->addRectangle(350,300,30,40,0.75,0.75,0.25);
+    shapes->setVisible(true);
+    shapes->setSelected(true);
+    shape_cont.push_back(shapes);
+    
+    ShapeContainer *shapes1 = new ShapeContainer();
+    shapes1->addRectangle(500,50,100,125,0.5,0.5,0.75);
+    shapes1->addCircle(450,150,100,1.0,1.0,0.0);
+    shapes1->setVisible(true);
+    shapes1->setSelected(false);
+    shape_cont.push_back(shapes1);
     
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
@@ -47,9 +87,12 @@ int main (int argc, char ** argv) {
     glutInitWindowSize(640,480);
     glutCreateWindow("GLUT Window");
     glutDisplayFunc(render);
-//    glutIdleFunc(idle);
-    glutIdleFunc(render);
+    glutIdleFunc(idle);
+//    glutIdleFunc(render);
     glutReshapeFunc(resizeWindow);
+    glutKeyboardFunc(processNormalKeys);
+    glutSpecialFunc(processSpecialKeys);
+    
     glDisable(GL_DEPTH_TEST);
     glutMainLoop();
     

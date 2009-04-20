@@ -10,20 +10,12 @@
 #include "shape_container.h"
 #include <GLUT/GLUT.h>
 
-ShapeContainer::ShapeContainer() {
-    this->setLocation(0, 0);
-    this->setSize(0, 0);
-    this->setSelected(false);
-    this->setVisible(false);
+ShapeContainer::ShapeContainer():Shape() {
     this->setSelected(false);
     this->setColor(1.0,0.0,0.0);
 }
 
-ShapeContainer::ShapeContainer(float x, float y, float h, float w, float r, float g, float b) {
-    this->setLocation(x, y);
-    this->setSize(h, w);
-    this->setColor(r, g, b);
-    this->setVisible(true);
+ShapeContainer::ShapeContainer(float x, float y, float h, float w, float r, float g, float b):Shape(x,y,h,w,r,g,b) {
     this->setSelected(true);
 }
 

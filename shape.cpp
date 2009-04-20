@@ -10,25 +10,26 @@
 #include "shape.h"
 
 Shape::Shape(){
-    this->x = 0.0;
-    this->y = 0.0;
-    this->h = 0.0;
-    this->w = 0.0;
-    this->visible = false;
-    this->red = 0.0;
-    this->green = 0.0;
-    this->blue = 0.0;
+    this->setLocation(0, 0);
+    this->setSize(0, 0);
+//    this->visible = false;
+    this->setVisible(false);
+    this->setColor(0.0,0.0,0.0);
 }
 
-Shape::Shape(float x, float y, float h, float w, float r, float g, float b) {
-    this->x = x;
-    this->y = y;
-    this->h = h;
-    this->w = w;
-    this->visible = true;
-    this->red = r;
-    this->green = g;
-    this->blue = b;    
+Shape::Shape(float x, float y, float w, float h, float r, float g, float b) {
+//    this->x = x;
+//    this->y = y;
+    this->setLocation(x,y);
+//    this->h = h;
+//    this->w = w;
+    this->setSize(w,h);
+//    this->visible = true;
+    this->setVisible(true);
+//    this->red = r;
+//    this->green = g;
+//    this->blue = b;
+    this->setColor(r,g,b);
 }
 
 Shape::Shape(const Shape& shape) {
@@ -47,7 +48,7 @@ void  Shape::setLocation(float x, float y) {
 
 float Shape::getWidth() const{ return w; }
 float Shape::getHeight() const{ return h; }
-void  Shape::setSize(float h, float w){ 
+void  Shape::setSize(float w, float h){ 
     this->h = h; 
     this->w = w; 
 }

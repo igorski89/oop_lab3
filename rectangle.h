@@ -14,8 +14,8 @@
 class Rectangle: public Shape {
 public:
     Rectangle(): Shape() {};
-    Rectangle(float x, float y, float h, float w): Shape(x,y,h,w,0.0,0.0,0.0) {};
-    Rectangle(float x, float y, float h, float w, float r, float g, float b):Shape(x,y,h,w,r,g,b) {};
+    Rectangle(float x, float y, float w, float h): Shape(x,y,w,h,0.0,0.0,0.0) {};
+    Rectangle(float x, float y, float w, float h, float r, float g, float b):Shape(x,y,w,h,r,g,b) {};
     Rectangle(const Rectangle& rect) : Shape(rect) {};
 
     virtual void draw();

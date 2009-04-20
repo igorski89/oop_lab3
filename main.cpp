@@ -35,9 +35,9 @@ void idle(){
 
 int main (int argc, char ** argv) {    
     shape_cont.addRectangle(100,100,300,200,0.0,1.0,0.0);
-//    shape_cont.addCircle(300,300,50,0.0,0.0,1.0);
-//    shape_cont.addCircle(100,100,50,0.0,0.0,1.0);    
-    shape_cont.addRectangle(350,300,50,50,0.0,0.0,1.0);
+    shape_cont.addCircle(300,300,50,0.0,0.0,1.0);
+    shape_cont.addCircle(100,100,50,0.0,0.0,1.0);    
+    shape_cont.addRectangle(350,300,30,40,0.0,0.0,1.0);
     shape_cont.setVisible(true);
     shape_cont.setSelected(true);    
     

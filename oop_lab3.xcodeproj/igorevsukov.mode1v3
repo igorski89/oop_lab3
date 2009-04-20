@@ -202,29 +202,24 @@
 			<key>Content</key>
 			<dict>
 				<key>PBXProjectModuleGUID</key>
-				<string>A9DF27660F9D0C26000E664C</string>
+				<string>A9DF277D0F9D0D67000E664C</string>
 				<key>PBXProjectModuleLabel</key>
-				<string>circle.cpp</string>
+				<string>main.cpp</string>
 				<key>PBXSplitModuleInNavigatorKey</key>
 				<dict>
 					<key>Split0</key>
 					<dict>
 						<key>PBXProjectModuleGUID</key>
-						<string>A9DF27670F9D0C26000E664C</string>
+						<string>A9DF277E0F9D0D67000E664C</string>
 						<key>PBXProjectModuleLabel</key>
-						<string>circle.cpp</string>
+						<string>main.cpp</string>
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>A9DF276B0F9D0C26000E664C</string>
+						<string>A9DF27BF0F9D1027000E664C</string>
 						<key>history</key>
 						<array>
-							<string>A9DF27680F9D0C26000E664C</string>
-							<string>A9DF27690F9D0C26000E664C</string>
-						</array>
-						<key>prevStack</key>
-						<array>
-							<string>A9DF276A0F9D0C26000E664C</string>
+							<string>A9DF277B0F9D0D62000E664C</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -236,18 +231,18 @@
 			<key>Geometry</key>
 			<dict>
 				<key>Frame</key>
-				<string>{{0, 20}, {624, 662}}</string>
+				<string>{{0, 20}, {641, 657}}</string>
 				<key>PBXModuleWindowStatusBarHidden2</key>
 				<false/>
 				<key>RubberWindowFrame</key>
-				<string>608 75 624 703 0 0 1280 778 </string>
+				<string>255 80 641 698 0 0 1280 778 </string>
 			</dict>
 		</dict>
 		<dict>
 			<key>Content</key>
 			<dict>
 				<key>PBXProjectModuleGUID</key>
-				<string>A9DF27550F9D0B6F000E664C</string>
+				<string>A9DF27970F9D0E76000E664C</string>
 				<key>PBXProjectModuleLabel</key>
 				<string>shape.cpp</string>
 				<key>PBXSplitModuleInNavigatorKey</key>
@@ -255,25 +250,21 @@
 					<key>Split0</key>
 					<dict>
 						<key>PBXProjectModuleGUID</key>
-						<string>A9DF27560F9D0B6F000E664C</string>
+						<string>A9DF27980F9D0E76000E664C</string>
 						<key>PBXProjectModuleLabel</key>
 						<string>shape.cpp</string>
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>A9DF27700F9D0C26000E664C</string>
+						<string>A9DF27C00F9D1027000E664C</string>
 						<key>history</key>
 						<array>
-							<string>A9DF276C0F9D0C26000E664C</string>
-							<string>A9DF276D0F9D0C26000E664C</string>
+							<string>A9DF27990F9D0E76000E664C</string>
+							<string>A9DF279A0F9D0E76000E664C</string>
 						</array>
 						<key>prevStack</key>
 						<array>
-							<string>A9DF27590F9D0B6F000E664C</string>
-							<string>A9DF275A0F9D0B6F000E664C</string>
-							<string>A9DF275B0F9D0B6F000E664C</string>
-							<string>A9DF276E0F9D0C26000E664C</string>
-							<string>A9DF276F0F9D0C26000E664C</string>
+							<string>A9DF279B0F9D0E76000E664C</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -289,7 +280,7 @@
 				<key>PBXModuleWindowStatusBarHidden2</key>
 				<false/>
 				<key>RubberWindowFrame</key>
-				<string>423 75 639 703 0 0 1280 778 </string>
+				<string>557 75 639 703 0 0 1280 778 </string>
 			</dict>
 		</dict>
 	</array>
@@ -550,7 +541,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>7</integer>
+									<integer>4</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -625,14 +616,16 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>A9DF27B50F9D101F000E664C</string>
+		<string>A9DF27750F9D0D5E000E664C</string>
 		<string>A9DF22CD0F9BAF1C000E664C</string>
 		<string>A9DF22CE0F9BAF1C000E664C</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>A9DF221F0F99FBE7000E664C</string>
+		<string>A9DF27970F9D0E76000E664C</string>
 		<string>/Users/igorevsukov/Documents/DNU/SysProg/oop_lab3/oop_lab3.xcodeproj</string>
-		<string>A9DF27550F9D0B6F000E664C</string>
-		<string>A9DF27660F9D0C26000E664C</string>
+		<string>A9DF277D0F9D0D67000E664C</string>
 	</array>
 	<key>WindowString</key>
 	<string>2 141 241 637 0 0 1280 778 </string>

@@ -15,7 +15,7 @@ ShapeContainer::ShapeContainer():Shape() {
     this->setColor(1.0,0.0,0.0);
 }
 
-ShapeContainer::ShapeContainer(float x, float y, float h, float w, float r, float g, float b):Shape(x,y,h,w,r,g,b) {
+ShapeContainer::ShapeContainer(float x, float y, float w, float h, float r, float g, float b):Shape(x,y,w,h,r,g,b) {
     this->setSelected(true);
 }
 
@@ -46,8 +46,8 @@ void ShapeContainer::add(Shape* shape) {
     this->recalculateBounds();
 }
 
-Rectangle* ShapeContainer::addRectangle(float x, float y, float h, float w, float r, float g, float b) {
-    Rectangle *rect = new Rectangle(x,y,h,w,r,g,b);
+Rectangle* ShapeContainer::addRectangle(float x, float y, float w, float h, float r, float g, float b) {
+    Rectangle *rect = new Rectangle(x,y,w,h,r,g,b);
     this->add(rect);
     return rect;
 }
@@ -67,23 +67,19 @@ void ShapeContainer::remove(Shape* shape) {
 
 void ShapeContainer::recalculateBounds() {
     int shapes_size = shapes.size();
-    // TODO: переделать. Добавить в базовый класс виртуальные getMinX,maxX,minY,maxY
-    float minX = shapes[0]->getX();
-    float minY = shapes[0]->getY();
-//    float maxW = shapes[0]->getWidth();
-//    float maxH = shapes[0]->getHeight();
-    float maxX = shapes[0]->getX()+shapes[0]->getWidth();
-    float maxY = shapes[0]->getY()+shapes[0]->getHeight();
+    
+    float minX = shapes[0]->getMinX();
+    float minY = shapes[0]->getMinY();
+    float maxX = shapes[0]->getMaxX();
+    float maxY = shapes[0]->getMaxY();
     for(int i=1; i<shapes_size; i++){
-        if (shapes[i]->getX() < minX) minX = shapes[i]->getX();
-        if (shapes[i]->getY() < minY) minY = shapes[i]->getY();
-//        if (shapes[i]->getWidth() > maxW) maxW = shapes[i]->getWidth();
-//        if (shapes[i]->getHeight() > maxH) maxH = shapes[i]->getHeight();
-        if (shapes[i]->getX()+shapes[i]->getWidth() > maxX) maxX = shapes[i]->getX()+shapes[i]->getWidth();
-        if (shapes[i]->getY()+shapes[i]->getHeight() > maxY) maxY = shapes[i]->getY()+shapes[i]->getHeight();
+        if (shapes[i]->getMinX() < minX) minX = shapes[i]->getMinX();
+        if (shapes[i]->getMinY() < minY) minY = shapes[i]->getMinY();
+        if (shapes[i]->getMaxX() > maxX) maxX = shapes[i]->getMaxX();
+        if (shapes[i]->getMaxY() > maxY) maxY = shapes[i]->getMaxY();
     }
+    
     this->setLocation(minX, minY);
-//    this->setSize(maxH, maxW);
     this->setSize(maxX-minX, maxY-minY);
 }
 

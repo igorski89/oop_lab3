@@ -23,14 +23,14 @@ public:
     void setSelected(bool selected);
     
     ShapeContainer();
-    ShapeContainer(float x, float y, float h, float w, float r, float g, float b);
+    ShapeContainer(float x, float y, float w, float h, float r, float g, float b);
     ShapeContainer(Shape* shape);
     ~ShapeContainer();
     
     void add(Shape* shape);
     void remove(Shape* shape);
     
-    Rectangle* addRectangle(float x, float y, float h, float w, float r, float g, float b);
+    Rectangle* addRectangle(float x, float y, float w, float h, float r, float g, float b);
     Circle* addCircle(float x, float y, float radius, float r, float g, float b);
     
     virtual void draw();

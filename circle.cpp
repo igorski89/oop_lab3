@@ -43,6 +43,11 @@ void Circle::setRadius(float radius) {
     this->h = 2*radius;
 }
 
+float Circle::getMinX() const { return x-radius; }
+float Circle::getMinY() const { return y-radius; }
+float Circle::getMaxX() const { return x+radius; }
+float Circle::getMaxY() const { return y+radius; }
+
 void Circle::draw() {
     if (this->isVisible()){
 //        glColor3f(this->getRed(), this->getGreen(), this->getBlue());

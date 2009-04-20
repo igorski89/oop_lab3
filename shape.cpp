@@ -52,6 +52,11 @@ void  Shape::setSize(float h, float w){
     this->w = w; 
 }
 
+float Shape::getMinX() const { return this->x; }
+float Shape::getMinY() const { return this->y; }
+float Shape::getMaxX() const { return this->x+this->w; }
+float Shape::getMaxY() const { return this->y+this->h; }
+
 bool  Shape::isVisible() const { return visible; }
 void Shape::setVisible(bool visible) { this->visible = visible; }
 

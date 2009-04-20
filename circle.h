@@ -18,11 +18,19 @@ public:
     float getRadius() const;
     void setRadius(float radius);
     
+    //bounds - штука не квадратная, надо перегрузить
+    virtual float getMinX() const;
+    virtual float getMinY() const;
+    virtual float getMaxX() const;
+    virtual float getMaxY() const;    
+    
     Circle();
     Circle(float x, float y, float radius, float r, float g, float b);
     Circle(const Circle& circle);
     
     virtual void draw();
+    
+    
     
     Circle& operator=(const Circle& circle);
     bool operator==(const Circle& circle) const;

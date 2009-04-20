@@ -10,22 +10,28 @@
 #define SHAPE_CONTAINER_H
 
 #include "shape.h"
+#include "rectangle.h"
+#include "circle.h"
 #include <vector>
 
 class ShapeContainer: public Shape {
 protected:
     bool selected;
-    std::vector<Shape> shapes;
+    std::vector<Shape*> shapes;
 public:
     bool isSelected() const;
     void setSelected(bool selected);
     
     ShapeContainer();
     ShapeContainer(float x, float y, float h, float w, float r, float g, float b);
-    ShapeContainer(Shape shape);
+    ShapeContainer(Shape* shape);
+    ~ShapeContainer();
     
-    void add(Shape shape);
-    void remove(Shape shape);
+    void add(Shape* shape);
+    void remove(Shape* shape);
+    
+    Rectangle* addRectangle(float x, float y, float h, float w, float r, float g, float b);
+    Circle* addCircle(float x, float y, float radius, float r, float g, float b);
     
     virtual void draw();
     virtual void recalculateBounds();

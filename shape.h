@@ -33,6 +33,12 @@ public:
     float getHeight() const;
     void setSize(float h, float w);
     
+    //bounds
+    virtual float getMinX() const;
+    virtual float getMinY() const;
+    virtual float getMaxX() const;
+    virtual float getMaxY() const;
+    
     bool isVisible() const;
     void setVisible(bool visible);
     

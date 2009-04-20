@@ -25,7 +25,7 @@ void Rectangle::draw(){
 
 Rectangle& Rectangle::operator=(const Rectangle& rect) {
     this->setLocation(rect.getX(), rect.getY());
-    this->setSize(rect.getHeigth(), rect.getWidth());
+    this->setSize(rect.getHeight(), rect.getWidth());
     this->setColor(rect.getRed(), rect.getGreen(), rect.getBlue());
     this->setVisible(rect.isVisible());
     return *this;    
@@ -33,7 +33,7 @@ Rectangle& Rectangle::operator=(const Rectangle& rect) {
 
 bool Rectangle::operator==(const Rectangle& rect) const {
     if (this->getX() == rect.getX() && this->getY() == rect.getY() &&
-        this->getWidth() == rect.getWidth() && this->getHeigth() == rect.getHeigth() &&
+        this->getWidth() == rect.getWidth() && this->getHeight() == rect.getHeight() &&
         this->isVisible() == rect.isVisible() &&
         this->getRed() == rect.getRed() &&
         this->getGreen() == rect.getGreen() &&

@@ -15,12 +15,12 @@ ShapeContainer * curr_shape_cont;
 ShapeContainer* setCurrentContainer(ShapeContainer *cont){
     curr_shape_cont = cont;
     curr_shape_cont->setSelected(true);
-//    curr_shape_cont->setVisible(true);
+    curr_shape_cont->setVisible(true);
     vector<ShapeContainer*>::iterator it;
     for (it=shape_cont.begin();it<shape_cont.end();it++)
         if (curr_shape_cont != (*it)) {
-            (*it)->setSelected(false);
-//            (*it)->setVisible(false);
+//            (*it)->setSelected(false);
+            (*it)->setVisible(false);
         }
     return curr_shape_cont;
 }

@@ -43,6 +43,9 @@ void ShapeContainer::setSelected(bool selected) {
 
 void ShapeContainer::add(Shape* shape) {
     this->shapes.push_back(shape);
+    if (shapes.size() > 1) 
+        shape->setColor(shapes[0]->getRed(), shapes[0]->getGreen(), shapes[0]->getBlue());
+    
     this->recalculateBounds();
 }
 

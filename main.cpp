@@ -10,17 +10,20 @@
 using namespace std;
 
 vector<ShapeContainer*> shape_cont;
-ShapeContainer * current;
+ShapeContainer * curr_shape_cont;
 
 ShapeContainer* setCurrentContainer(ShapeContainer *cont){
-    current = cont;
-    current->setSelected(true);
+    curr_shape_cont = cont;
+    curr_shape_cont->setSelected(true);
+    curr_shape_cont->setVisible(true);
     vector<ShapeContainer*>::iterator it;
     for (it=shape_cont.begin();it<shape_cont.end();it++)
-        if (current != (*it)) (*it)->setSelected(false);
-    return current;
+        if (curr_shape_cont != (*it)) {
+//            (*it)->setSelected(false);
+            (*it)->setVisible(false);
+        }
+    return curr_shape_cont;
 }
-
 
 ShapeContainer* selectNext(){
 //    if (current == (*shape_cont.end())){
@@ -32,37 +35,50 @@ ShapeContainer* selectNext(){
 //            if (current == (*it)) return setCurrentContainer((*(it++)));
 //    }
 //    return current;
-    if (current == shape_cont.back()) 
+    if (curr_shape_cont == shape_cont.back()) 
         return setCurrentContainer(shape_cont.front());
     else {
         int shape_size = shape_cont.size() - 1;
         for(int i=0; i < shape_size; i++) {
-            if (current == shape_cont[i])
+            if (curr_shape_cont == shape_cont[i])
                 return setCurrentContainer(shape_cont[i+1]);
         }
     }
-    return current;
+    return curr_shape_cont;
 }
 
-//ShapeContainer* selectPrevious(){
-//    if (current == (*shape_cont.begin()))
-//        return setCurrentContainer((*shape_cont.end()));
-//    else {
-//        vector<ShapeContainer*>::iterator it;
-//        for(it=shape_cont.end();it>shape_cont.begin();it--)
-//            if (current == (*it)) return setCurrentContainer((*(it--)));     
-//    }
-//    return current;
-//}
+void mergeShapesWithCurrent() {
+    vector<ShapeContainer*>::iterator it;
+    float x11 = curr_shape_cont->getMinX();
+    float y11 = curr_shape_cont->getMinY();
+    float x12 = curr_shape_cont->getMaxX();
+    float y12 = curr_shape_cont->getMaxY();
+    for (it=shape_cont.begin();it<shape_cont.end();it++) {
+        ShapeContainer* step_shape_cont = (*it);
+        if (curr_shape_cont != step_shape_cont) {
+            float x21 = step_shape_cont->getMinX();
+            float y21 = step_shape_cont->getMinY();
+            float x22 = step_shape_cont->getMaxX();
+            float y22 = step_shape_cont->getMaxY();
+            //проверям условия пересечения
+            if (x11 < x22 &&
+                x12 > x21 &&
+                y11 < y22 &&
+                y12 > y21) {
+                cout << "intersects " << endl;
+            }
+        }
+    }
+}
 
 void render(){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     vector<ShapeContainer*>::iterator it;
     for(it=shape_cont.begin(); it < shape_cont.end(); it++) {
-        if ((*it) != current) (*it)->draw();
+        if ((*it) != curr_shape_cont) (*it)->draw();
     }
-    if (current != NULL) current->draw();
+    if (curr_shape_cont != NULL) curr_shape_cont->draw();
     
     glutSwapBuffers();
 }
@@ -102,28 +118,25 @@ void processNormalKeys(unsigned char key, int x, int y){
     } else if ( (int)key == 9) {
         cout << "selecting next shape " << endl;
         selectNext();
-//    } else if (key == 'q' || key == 'Q') {
-//        cout << "selecting next shape " << endl;
-//        selectNext();
-//    } else if (key == 'e' || key == 'E') {
-//        cout << "selecting previous shape " << endl;
-//        selectPrevious();
     } else if (key == 'w' || key == 'W') {
         //двигаем фигуру вверх
         cout << "moving shape up " << endl;
-        current->move(0,10);
+        curr_shape_cont->move(0,10);
     } else if (key == 's' || key == 'S') {
         //двигаем фигуру вниз
         cout << "moving shape down " << endl;
-        current->move(0,-10);
+        curr_shape_cont->move(0,-10);
     } else if (key == 'a' || key == 'A') {
         //двигаем фигуру влево
         cout << "moving shape left " << endl;
-        current->move(-10,0);
+        curr_shape_cont->move(-10,0);
     } else if (key == 'd' || key == 'D') {
         //двигаем фигуру вправо
         cout << "moving shape right " << endl;
-        current->move(10,0);
+        curr_shape_cont->move(10,0);
+    } else if (key == 'm' || key == 'M') {
+        cout << "merging current shape" << endl;
+        mergeShapesWithCurrent();
     }
 }
 

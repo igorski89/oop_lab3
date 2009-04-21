@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>A9F51AFF0F9E560600AD6433</string>
+						<string>A9F51B170F9E5F2E00AD6433</string>
 						<key>history</key>
 						<array>
 							<string>A9DF281E0F9E395F000E664C</string>
@@ -231,11 +231,11 @@
 			<key>Geometry</key>
 			<dict>
 				<key>Frame</key>
-				<string>{{0, 20}, {733, 662}}</string>
+				<string>{{0, 20}, {852, 657}}</string>
 				<key>PBXModuleWindowStatusBarHidden2</key>
 				<false/>
 				<key>RubberWindowFrame</key>
-				<string>464 75 733 703 0 0 1280 778 </string>
+				<string>574 80 852 698 0 0 1280 778 </string>
 			</dict>
 		</dict>
 	</array>
@@ -496,8 +496,9 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>16</integer>
-									<integer>15</integer>
+									<integer>4</integer>
+									<integer>1</integer>
+									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
@@ -572,10 +573,10 @@
 	<array>
 		<string>A9F51AE40F9E50AD00AD6433</string>
 		<string>A9F51AE50F9E50AD00AD6433</string>
-		<string>A9DF221F0F99FBE7000E664C</string>
 		<string>1C78EAAD065D492600B07095</string>
-		<string>/Users/igorevsukov/Documents/DNU/SysProg/oop_lab3/oop_lab3.xcodeproj</string>
+		<string>A9DF221F0F99FBE7000E664C</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>/Users/igorevsukov/Documents/DNU/SysProg/oop_lab3/oop_lab3.xcodeproj</string>
 		<string>A9DF277D0F9D0D67000E664C</string>
 	</array>
 	<key>WindowString</key>
@@ -793,7 +794,7 @@
 			<key>WindowToolGUID</key>
 			<string>1CD10A99069EF8BA00B06720</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
@@ -923,18 +924,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {650, 209}}</string>
+								<string>{{0, 0}, {527, 252}}</string>
 								<key>RubberWindowFrame</key>
-								<string>525 312 650 250 0 0 1280 778 </string>
+								<string>187 161 527 293 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
 							<key>Proportion</key>
-							<string>209pt</string>
+							<string>252pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
-					<string>209pt</string>
+					<string>252pt</string>
 				</dict>
 			</array>
 			<key>Name</key>
@@ -954,11 +955,11 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>525 312 650 250 0 0 1280 778 </string>
+			<string>187 161 527 293 0 0 1280 778 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

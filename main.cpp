@@ -15,12 +15,12 @@ ShapeContainer * curr_shape_cont;
 ShapeContainer* setCurrentContainer(ShapeContainer *cont){
     curr_shape_cont = cont;
     curr_shape_cont->setSelected(true);
-    curr_shape_cont->setVisible(true);
+//    curr_shape_cont->setVisible(true);
     vector<ShapeContainer*>::iterator it;
     for (it=shape_cont.begin();it<shape_cont.end();it++)
         if (curr_shape_cont != (*it)) {
-//            (*it)->setSelected(false);
-            (*it)->setVisible(false);
+            (*it)->setSelected(false);
+//            (*it)->setVisible(false);
         }
     return curr_shape_cont;
 }
@@ -48,27 +48,36 @@ ShapeContainer* selectNext(){
 }
 
 void mergeShapesWithCurrent() {
-    vector<ShapeContainer*>::iterator it;
+//    vector<ShapeContainer*>::iterator it;
     float x11 = curr_shape_cont->getMinX();
     float y11 = curr_shape_cont->getMinY();
     float x12 = curr_shape_cont->getMaxX();
     float y12 = curr_shape_cont->getMaxY();
-    for (it=shape_cont.begin();it<shape_cont.end();it++) {
-        ShapeContainer* step_shape_cont = (*it);
+//    for (it=shape_cont.begin();it<shape_cont.end();it++) {    
+    for (int i = 0; i < shape_cont.size(); i++) {
+//        ShapeContainer* step_shape_cont = (*it);
+        ShapeContainer* step_shape_cont = shape_cont[i];
         if (curr_shape_cont != step_shape_cont) {
             float x21 = step_shape_cont->getMinX();
             float y21 = step_shape_cont->getMinY();
             float x22 = step_shape_cont->getMaxX();
             float y22 = step_shape_cont->getMaxY();
             //проверям условия пересечения
-            if (x11 < x22 &&
-                x12 > x21 &&
-                y11 < y22 &&
-                y12 > y21) {
-                cout << "intersects " << endl;
+            if (x11 < x22 && x12 > x21 && y11 < y22 && y12 > y21) {
+//                cout << "intersects " << endl;
+                vector<Shape*> shapes = step_shape_cont->getShapes();
+                vector<Shape*>::iterator sh_it;
+                for(sh_it=shapes.begin();sh_it<shapes.end();sh_it++) {
+                    curr_shape_cont->add((*sh_it));
+                }
+                delete step_shape_cont;
+//                shape_cont.erase(it);
+                shape_cont.erase(shape_cont.begin()+i);
+                i = 0;
             }
         }
     }
+//    cout << curr_shape_cont->getShapes().size() << endl;
 }
 
 void render(){
@@ -144,23 +153,12 @@ void processSpecialKeys(int key, int x, int y){
     cout << "pressed special : " << key << " : " << endl;
 }
 
-int main (int argc, char ** argv) {    
+int main (int argc, char ** argv) {
     ShapeContainer *shapes = new ShapeContainer();
-    shapes->addRectangle(100, 100, 200, 300, 0.0, 1.0, 0.0);
     shapes->addCircle(300,300,50,0.0,0.5,0.5);
-    shapes->addCircle(100,100,75,0.5,0.0,0.5);
-    shapes->addRectangle(350,300,30,40,0.75,0.75,0.25);
     shapes->setVisible(true);
     shapes->setSelected(true);
     shape_cont.push_back(shapes);
-    
-//    ShapeContainer *shapes1 = new ShapeContainer();
-//    shapes1->addRectangle(500,50,100,125,0.5,0.5,0.75);
-//    shapes1->addCircle(450,150,100,1.0,1.0,0.0);
-//    shapes1->setVisible(true);
-//    shapes1->setSelected(false);
-//    shape_cont.push_back(shapes1);
-    
     setCurrentContainer(shapes);
     
     glutInit(&argc, argv);

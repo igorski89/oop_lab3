@@ -27,10 +27,16 @@ ShapeContainer::ShapeContainer(Shape* shape) {
     this->recalculateBounds();
 }
 
-ShapeContainer::~ShapeContainer() {
+void ShapeContainer::eraseAll() {
     int shapes_size = shapes.size();
     for(int i=0; i<shapes_size; i++)
         delete shapes[i];
+}
+
+ShapeContainer::~ShapeContainer() {
+//    int shapes_size = shapes.size();
+//    for(int i=0; i<shapes_size; i++)
+//        delete shapes[i];
 }
 
 bool ShapeContainer::isSelected() const {

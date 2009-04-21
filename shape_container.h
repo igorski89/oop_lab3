@@ -34,6 +34,7 @@ public:
     Circle* addCircle(float x, float y, float radius, float r, float g, float b);
     
     virtual void draw();
+    void move(float dx, float dy);
     virtual void recalculateBounds();
 };
 

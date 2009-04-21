@@ -83,6 +83,12 @@ void ShapeContainer::recalculateBounds() {
     this->setSize(maxX-minX, maxY-minY);
 }
 
+void ShapeContainer::move(float dx, float dy) {
+    this->setLocation(this->getX()+dx, this->getY()+dy);
+    std::vector<Shape*>::iterator it;
+    for (it=shapes.begin();it<shapes.end();it++)
+        (*it)->setLocation((*it)->getX()+dx, (*it)->getY()+dy);
+}
 
 void ShapeContainer::draw() {
     if (this->isSelected()) {

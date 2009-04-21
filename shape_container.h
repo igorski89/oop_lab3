@@ -22,6 +22,8 @@ public:
     bool isSelected() const;
     void setSelected(bool selected);
     
+    std::vector<Shape*> getShapes();
+    
     ShapeContainer();
     ShapeContainer(float x, float y, float w, float h, float r, float g, float b);
     ShapeContainer(Shape* shape);

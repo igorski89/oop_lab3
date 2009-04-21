@@ -41,6 +41,10 @@ void ShapeContainer::setSelected(bool selected) {
     this->selected = selected;
 }
 
+std::vector<Shape*> ShapeContainer::getShapes() {
+    return this->shapes;
+}
+
 void ShapeContainer::add(Shape* shape) {
     this->shapes.push_back(shape);
     if (shapes.size() > 1) 

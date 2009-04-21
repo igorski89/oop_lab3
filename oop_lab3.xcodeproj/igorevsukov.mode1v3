@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>A9F51AE30F9E50AD00AD6433</string>
+						<string>A9F51AFF0F9E560600AD6433</string>
 						<key>history</key>
 						<array>
 							<string>A9DF281E0F9E395F000E664C</string>
@@ -235,7 +235,7 @@
 				<key>PBXModuleWindowStatusBarHidden2</key>
 				<false/>
 				<key>RubberWindowFrame</key>
-				<string>291 75 733 703 0 0 1280 778 </string>
+				<string>464 75 733 703 0 0 1280 778 </string>
 			</dict>
 		</dict>
 	</array>
@@ -573,10 +573,10 @@
 		<string>A9F51AE40F9E50AD00AD6433</string>
 		<string>A9F51AE50F9E50AD00AD6433</string>
 		<string>A9DF221F0F99FBE7000E664C</string>
-		<string>/Users/igorevsukov/Documents/DNU/SysProg/oop_lab3/oop_lab3.xcodeproj</string>
 		<string>1C78EAAD065D492600B07095</string>
-		<string>A9DF277D0F9D0D67000E664C</string>
+		<string>/Users/igorevsukov/Documents/DNU/SysProg/oop_lab3/oop_lab3.xcodeproj</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>A9DF277D0F9D0D67000E664C</string>
 	</array>
 	<key>WindowString</key>
 	<string>2 141 241 637 0 0 1280 778 </string>
@@ -752,10 +752,10 @@
 									<key>Frame</key>
 									<string>{{387, 0}, {461, 226}}</string>
 									<key>RubberWindowFrame</key>
-									<string>247 171 848 484 0 0 1280 778 </string>
+									<string>186 186 848 484 0 0 1280 778 </string>
 								</dict>
 								<key>RubberWindowFrame</key>
-								<string>247 171 848 484 0 0 1280 778 </string>
+								<string>186 186 848 484 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugSessionModule</string>
@@ -789,7 +789,7 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
 			<key>WindowString</key>
-			<string>247 171 848 484 0 0 1280 778 </string>
+			<string>186 186 848 484 0 0 1280 778 </string>
 			<key>WindowToolGUID</key>
 			<string>1CD10A99069EF8BA00B06720</string>
 			<key>WindowToolIsVisible</key>

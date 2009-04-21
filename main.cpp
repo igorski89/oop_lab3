@@ -23,13 +23,23 @@ ShapeContainer* setCurrentContainer(ShapeContainer *cont){
 
 
 ShapeContainer* selectNext(){
-    if (current == (*shape_cont.end())){
-        return setCurrentContainer((*shape_cont.begin()));
-    }
+//    if (current == (*shape_cont.end())){
+//        return setCurrentContainer((*shape_cont.begin()));
+//    }
+//    else {
+//        vector<ShapeContainer*>::iterator it;
+//        for(it=shape_cont.begin();it<shape_cont.end();it++)
+//            if (current == (*it)) return setCurrentContainer((*(it++)));
+//    }
+//    return current;
+    if (current == shape_cont.back()) 
+        return setCurrentContainer(shape_cont.front());
     else {
-        vector<ShapeContainer*>::iterator it;
-        for(it=shape_cont.begin();it<shape_cont.end();it++)
-            if (current == (*it)) return setCurrentContainer((*(it++)));
+        int shape_size = shape_cont.size() - 1;
+        for(int i=0; i < shape_size; i++) {
+            if (current == shape_cont[i])
+                return setCurrentContainer(shape_cont[i+1]);
+        }
     }
     return current;
 }
@@ -74,7 +84,7 @@ void idle(){
 
 void processNormalKeys(unsigned char key, int x, int y){
 //    int mod = glutGetModifiers();
-    cout << "pressed key " << (int)key << ", ";
+    cout << "pressed key " << key << " [" << (int)key << "]" << ", ";
     if (key == '1') {
         cout << "adding rectangle to scene and make it selected " << endl;
         ShapeContainer *new_cont = new ShapeContainer();

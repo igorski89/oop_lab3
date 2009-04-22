@@ -18,7 +18,11 @@ class ShapeContainer: public Shape {
 protected:
     bool selected;
     std::vector<Shape*> shapes;
+//    float scaleFactor;
 public:
+//    float getScaleFactor() const;
+//    void setScaleFactor(float newScaleFactor);
+    
     bool isSelected() const;
     void setSelected(bool selected);
     
@@ -37,6 +41,7 @@ public:
     Circle* addCircle(float x, float y, float radius, float r, float g, float b);
     
     virtual void draw();
+    virtual void setScale(float scalef);
     void move(float dx, float dy);
     virtual void recalculateBounds();
 };

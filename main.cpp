@@ -88,6 +88,37 @@ void mergeShapesWithCurrent() {
 //    cout << curr_shape_cont->getShapes().size() << endl;
 }
 
+void changeColorIfIntersect() {
+    float x11 = curr_shape_cont->getMinX();
+    float y11 = curr_shape_cont->getMinY();
+    float x12 = curr_shape_cont->getMaxX();
+    float y12 = curr_shape_cont->getMaxY();
+    for (int i = 0; i < shape_cont.size(); i++) {
+        ShapeContainer* step_shape_cont = shape_cont[i];
+        if (curr_shape_cont != step_shape_cont) {
+            float x21 = step_shape_cont->getMinX();
+            float y21 = step_shape_cont->getMinY();
+            float x22 = step_shape_cont->getMaxX();
+            float y22 = step_shape_cont->getMaxY();
+            //проверям условия пересечения
+            if (x11 < x22 && x12 > x21 && y11 < y22 && y12 > y21) {
+                Shape* inter_shape = step_shape_cont->getShapes()[0];
+                float r = inter_shape->getRed();
+                float g = inter_shape->getGreen();
+                float b = inter_shape->getBlue();
+                cout << "setting color to [" << r << ";" << g << ";" << b << "]" << endl; 
+                vector<Shape*>::iterator it;
+                vector<Shape*> curr_shapes = curr_shape_cont->getShapes();
+                if (r != curr_shapes[0]->getRed() || b != curr_shapes[0]->getBlue() || g != curr_shapes[0]->getGreen()) {
+                    for(it=curr_shapes.begin();it<curr_shapes.end();it++) 
+                        (*it)->setColor(r,g,b);
+                }
+                break;
+            }
+        }
+    }    
+}
+
 void render(){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
@@ -97,6 +128,7 @@ void render(){
     }
     if (curr_shape_cont != NULL) curr_shape_cont->draw();
         animateCurrentShapeCont();
+    changeColorIfIntersect();
     glutSwapBuffers();
 }
 
@@ -162,6 +194,10 @@ void processNormalKeys(unsigned char key, int x, int y){
             cout << "starting animate current shape " << endl;
             animate_curr = true;
         }
+    } else if (key == 'z' || key == 'Z') {
+        curr_shape_cont->setScale(2.0);
+    } else if (key == 'x' || key == 'X') {
+        curr_shape_cont->setScale(0.5);
     }
 }
 

@@ -29,7 +29,7 @@ public:
     Circle(const Circle& circle);
     
     virtual void draw();
-    
+    virtual void setScale(float scalef);
     
     
     Circle& operator=(const Circle& circle);

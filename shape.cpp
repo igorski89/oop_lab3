@@ -53,13 +53,18 @@ void  Shape::setSize(float w, float h){
     this->w = w; 
 }
 
+void Shape::setScale(float scalef) {
+    this->h *= scalef;
+    this->w *= scalef;
+}
+
 float Shape::getMinX() const { return this->x; }
 float Shape::getMinY() const { return this->y; }
 float Shape::getMaxX() const { return this->x+this->w; }
 float Shape::getMaxY() const { return this->y+this->h; }
 
 bool  Shape::isVisible() const { return visible; }
-void Shape::setVisible(bool visible) { this->visible = visible; }
+void  Shape::setVisible(bool visible) { this->visible = visible; }
 
 float Shape::getRed() const{ return red; }
 float Shape::getGreen() const{ return green; }

@@ -48,6 +48,7 @@ public:
     void setColor(float r, float g, float b);
     
     virtual void draw();
+    virtual void setScale(float scalef);
     
     Shape();
     Shape(float x, float y, float h, float w, float r, float g, float b);

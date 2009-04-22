@@ -43,6 +43,10 @@ void Circle::setRadius(float radius) {
     this->h = 2*radius;
 }
 
+void Circle::setScale(float scalef) {
+    this->setRadius(this->getRadius()*scalef);
+}
+
 float Circle::getMinX() const { return x-radius; }
 float Circle::getMinY() const { return y-radius; }
 float Circle::getMaxX() const { return x+radius; }

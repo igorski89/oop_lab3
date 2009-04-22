@@ -13,10 +13,12 @@
 ShapeContainer::ShapeContainer():Shape() {
     this->setSelected(false);
     this->setColor(1.0,0.0,0.0);
+//    this->setScaleFactor(1.0);
 }
 
 ShapeContainer::ShapeContainer(float x, float y, float w, float h, float r, float g, float b):Shape(x,y,w,h,r,g,b) {
     this->setSelected(true);
+//    this->setScaleFactor(1.0);
 }
 
 ShapeContainer::ShapeContainer(Shape* shape) {
@@ -25,6 +27,7 @@ ShapeContainer::ShapeContainer(Shape* shape) {
     this->setColor(1.0, 0.0, 0.0);
     this->add(shape);
     this->recalculateBounds();
+//    this->setScaleFactor(1.0);
 }
 
 void ShapeContainer::eraseAll() {
@@ -37,6 +40,16 @@ ShapeContainer::~ShapeContainer() {
 //    int shapes_size = shapes.size();
 //    for(int i=0; i<shapes_size; i++)
 //        delete shapes[i];
+}
+
+//float ShapeContainer::getScaleFactor() const { return scaleFactor; }
+//void ShapeContainer::setScaleFactor(float newScaleFactor) { this->scaleFactor = newScaleFactor; }
+
+void ShapeContainer::setScale(float scalef) {
+    int shapes_size = shapes.size();
+    for(int i=0; i<shapes_size; i++)
+        shapes[i]->setScale(scalef);
+    this->recalculateBounds(); 
 }
 
 bool ShapeContainer::isSelected() const {
@@ -105,6 +118,9 @@ void ShapeContainer::move(float dx, float dy) {
 
 void ShapeContainer::draw() {
     if (this->isSelected()) {
+//        glPushMatrix();
+        
+//        glScalef(scaleFactor, scaleFactor, 1.0);
         glColor3f(red, green, blue);
         glLineWidth(2.0);
         glBegin(GL_LINE_LOOP);
@@ -113,6 +129,8 @@ void ShapeContainer::draw() {
         glVertex2f(x+w, y+h);
         glVertex2f(x+w, y);
         glEnd();
+//        glPopMatrix();
+//        sleep(1);
     }    
     if (this->isVisible()){
         int shapes_size = shapes.size();

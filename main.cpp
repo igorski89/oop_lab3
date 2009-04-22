@@ -47,6 +47,14 @@ ShapeContainer* selectNext(){
     return curr_shape_cont;
 }
 
+bool animate_curr = false;
+void animateCurrentShapeCont() {
+    if (animate_curr) {
+        curr_shape_cont->move(1,1);
+        sleep(1);
+    }
+}
+
 void mergeShapesWithCurrent() {
 //    vector<ShapeContainer*>::iterator it;
     float x11 = curr_shape_cont->getMinX();
@@ -88,7 +96,7 @@ void render(){
         if ((*it) != curr_shape_cont) (*it)->draw();
     }
     if (curr_shape_cont != NULL) curr_shape_cont->draw();
-    
+        animateCurrentShapeCont();
     glutSwapBuffers();
 }
 
@@ -144,8 +152,16 @@ void processNormalKeys(unsigned char key, int x, int y){
         cout << "moving shape right " << endl;
         curr_shape_cont->move(10,0);
     } else if (key == 'm' || key == 'M') {
-        cout << "merging current shape" << endl;
+        cout << "merging current shape " << endl;
         mergeShapesWithCurrent();
+    } else if (key == 'p' || key == 'P') {
+        if (animate_curr) {
+            cout << "stopping animate current shape " << endl;
+            animate_curr = false;
+        } else {
+            cout << "starting animate current shape " << endl;
+            animate_curr = true;
+        }
     }
 }
 

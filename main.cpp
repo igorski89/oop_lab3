@@ -26,15 +26,6 @@ ShapeContainer* setCurrentContainer(ShapeContainer *cont){
 }
 
 ShapeContainer* selectNext(){
-//    if (current == (*shape_cont.end())){
-//        return setCurrentContainer((*shape_cont.begin()));
-//    }
-//    else {
-//        vector<ShapeContainer*>::iterator it;
-//        for(it=shape_cont.begin();it<shape_cont.end();it++)
-//            if (current == (*it)) return setCurrentContainer((*(it++)));
-//    }
-//    return current;
     if (curr_shape_cont == shape_cont.back()) 
         return setCurrentContainer(shape_cont.front());
     else {
@@ -44,7 +35,6 @@ ShapeContainer* selectNext(){
                 return setCurrentContainer(shape_cont[i+1]);
         }
     }
-    return curr_shape_cont;
 }
 
 bool animate_curr = false;
